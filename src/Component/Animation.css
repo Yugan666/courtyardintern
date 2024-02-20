@@ -119,14 +119,15 @@
 }
 .dfc{
     width: 100%;
-    /* height: 100%; */
+    height: 70%;
     overflow: hidden;
 }
 .dis{   
     transition: all 2s ease-in-out;
+    cursor: pointer;
 }
 .dis:hover{
-    scale: 1.3;
+    scale: 1.1;
     transition: all 2s ease-in-out;
 }
 .gal-con-img{

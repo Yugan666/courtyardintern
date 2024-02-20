@@ -1,11 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Animation.css'
 import downarrow from '../assets/images/down-arrow.svg'
 import circleText from '../assets/images/circle-text.png'
-// import r1 from '../assets/images/r-1.png'
-// import r2 from '../assets/images/r-2.png'
-// import r3 from '../assets/images/r-3.png'
-// import ExpolareSlider from './ExpolareSlider'
 import story from '../assets/images/story.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 import gallery1 from '../assets/images/g-1.png'
@@ -25,17 +21,15 @@ import TestiData from './TestiData'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ExpolareSlider from './ExpolareSlider'
-import SplitText from '../../node_modules/gsap-trial/dist/SplitText'
 import SliderPage from './Slider'
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Link } from 'react-router-dom'
-
-
-gsap.registerPlugin(ScrollTrigger, SplitText);
+import { useAnim } from './Context'
 
 const Hero = () => {
+
+   const {ref} = useAnim()
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -51,63 +45,9 @@ const Hero = () => {
         });
     }, []);
 
-    const ref = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref.current, { type: 'chars, words' });
-
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-
-        return () => {
-            split.revert();
-        };
-    }, []);
-
-    const ref3 = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref3.current, { type: 'chars, words' });
-
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-
-        return () => {
-            split.revert();
-        };
-    }, []);
-
-
     useEffect(() => {
         AOS.init();
     }, []);
-
-
-    // const settings = {
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 1000,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     autoplay: true,
-    //     autoplaySpeed: 4000,
-    // };
 
     const settings = {
         dots: true,
@@ -151,8 +91,6 @@ const Hero = () => {
         });
     };
 
-    
-
     return (
         <>
 
@@ -169,8 +107,8 @@ const Hero = () => {
 
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
-                    <p className='font-curban text-2xl anim' ref={ref3}>
+                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]' >Courtyard Castle</h1>
+                    <p className='font-curban text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>

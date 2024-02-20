@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import bg from '../../assets/images/bg-1.png'
 import downarrow from '../../assets/images/down-arrow.svg'
 import circleText from '../../assets/images/circle-text.png'
@@ -21,10 +21,8 @@ import disSeven from '../../assets/images/dis-7.png'
 import secondBanner from '../../assets/images/secondBanner.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitText from '../../../node_modules/gsap-trial/dist/SplitText'
-// import { MdArrowRightAlt } from "react-icons/md";
+import { useAnim } from '../Context'
+
 
 
 const images = [
@@ -76,49 +74,8 @@ const Menu = () => {
     const handleItemClick = (item) => {
         setActiveImage(item);
       };
-
-    const ref = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref.current, { type: 'chars, words' });
-
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-
-        return () => {
-            split.revert();
-        };
-    }, []);
-    const ref2 = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref2.current, { type: 'chars, words' });
-
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-
-        return () => {
-            split.revert();
-        };
-    }, []);
-
-
+const {ref} =useAnim()
+  
     useEffect(() => {
         AOS.init();
     }, []);
@@ -138,7 +95,7 @@ const Menu = () => {
 
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10" >
                     <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
-                    <p className='font-curban text-2xl anim' ref={ref2}>
+                    <p className='font-curban text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
@@ -251,7 +208,8 @@ const Menu = () => {
                     </div>
                 </div>
 
-                <div className="text-[#5C6C68] grid grid-cols-1 md:grid-cols-2 gap-3 md:px-[100px] px-[10px] md:h-auto">
+                <div className="hidden md:block">
+                <div className="text-[#5C6C68]  grid grid-cols-1 md:grid-cols-2 gap-3 md:px-[100px] px-[10px] md:h-auto">
                     <div className="relative">
                         {
                             activeImage? (
@@ -291,7 +249,18 @@ const Menu = () => {
                     </div>
                 </div>
 
+                </div>
+                <div className="relative md:hidden">
+                    {
+                        images.map((item,index)=>
+                            <div className="overflow-hidden  h-fit sticky top-0" key={index}>
+                                <img src={item.img} alt={item.list} className='w-full object-cover' />
+                                <div className="absolute text-white text-3xl top-4 text-center w-full p-2" style={{backgroundColor:'rgb(0,0,0,0.6)'}}>{item.list}</div>
+                            </div>
 
+                        )
+                    }
+                </div>
                 {/* third */}
 
                 <div className="relative">

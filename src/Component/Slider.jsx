@@ -1,15 +1,14 @@
-import React,{useRef,useEffect} from 'react'
+import React from 'react'
 import slider from '../assets/images/slider-1.png'
 import slider2 from '../assets/images/slider-2.png'
 import slider3 from '../assets/images/slider-1.png'
 import './Animation.css'
 import Sliders from 'react-slick'
-import SplitText from '../../node_modules/gsap-trial/dist/SplitText'
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useAnim } from './Context'
 
 
 const Slider = () => {
+  const {ref}=useAnim()
   const settings = {
     dots: true,
     infinite: true,
@@ -23,27 +22,7 @@ const Slider = () => {
     // Add any more settings you require
   };
 
-  const ref = useRef(null);
-
-  useEffect(() => {
-      const split = new SplitText(ref.current, { type: 'chars, words' });
-      
-      gsap.set(split.chars, { opacity: 0, y: 20 });
-
-      ScrollTrigger.batch(split.chars, {
-          onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.05, overwrite: true }),
-          onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-          onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.05, overwrite: true }),
-          onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-          start: 'top bottom',
-          end: 'bottom top'
-      });
-
-      return () => {
-          split.revert();
-      };
-  }, []);
-
+ 
   return (
 
     <>

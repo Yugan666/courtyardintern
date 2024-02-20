@@ -1,4 +1,4 @@
-import React, { useEffect,useRef } from 'react'
+import React, { useEffect} from 'react'
 import bg from '../../assets/images/bg-1.png'
 import downarrow from '../../assets/images/down-arrow.svg'
 import circleText from '../../assets/images/circle-text.png'
@@ -7,74 +7,13 @@ import aboutTwo from '../../assets/images/about-2.png'
 import aboutThree from '../../assets/images/about-31.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitText from '../../../node_modules/gsap-trial/dist/SplitText'
+import { useAnim } from '../Context'
+
 
 const About = () => {
 
-    const ref = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref.current, { type: 'chars, words' });
-        
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-  
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-  
-        return () => {
-            split.revert();
-        };
-    }, []);
-
-    const ref2 = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref2.current, { type: 'chars, words' });
-        
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-  
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-  
-        return () => {
-            split.revert();
-        };
-    }, []);
-    const ref3 = useRef(null);
-
-    useEffect(() => {
-        const split = new SplitText(ref3.current, { type: 'chars, words' });
-        
-        gsap.set(split.chars, { opacity: 0, y: 20 });
-  
-        ScrollTrigger.batch(split.chars, {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -20, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.02, overwrite: true }),
-            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 20, overwrite: true }),
-            start: 'top bottom',
-            end: 'bottom top'
-        });
-  
-        return () => {
-            split.revert();
-        };
-    }, []);
-
+    const {ref} =useAnim()
+   
     useEffect(() => {
         AOS.init();
     }, []);
@@ -91,7 +30,7 @@ const About = () => {
 
                 <div className="h-screen items-center justify-center flex flex-col  text-center text-white space-y-10">
                     <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
-                    <p className='font-curban text-2xl anim' ref={ref3}>
+                    <p className='font-curban text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
@@ -137,7 +76,7 @@ const About = () => {
                 <img src={aboutOne} alt="about_bg" className='object-contain ' data-aos='fade-down' data-aos-delay='600' />
 
                 <div className=" px-[30px] font-urban text-xl leading-10 ">
-                    <p ref={ref2} className='anim'>
+                    <p ref={ref} className='anim'>
                         At Courtyard , we believe that the ultimate luxury lies in the time and connections we make. Hence, the facilities and experiences are carefully crafted to rejuvenate the senses and foster connections with nature, family, and friends. Relax, rejuvenate, and reconnect with the world around you .
                     </p>
                 </div>

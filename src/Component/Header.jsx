@@ -124,7 +124,7 @@ const Header = () => {
 
                     <div className="right-nav">
 
-                        <button class={btn?"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7  md:py-3 py-1 cursor-pointer text-lg  shadow-lg hover:text-black btn-bg  button2":"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7  md:py-3 py-1 cursor-pointer text-lg border rounde-line shadow-lg hover:text-black  button2"}>
+                        <button class={btn?"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7 px-2  md:py-3 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-black btn-bg  button2":"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7 px-2 md:py-3 py-1 cursor-pointer md:text-lg text-md border rounde-line shadow-lg hover:text-black  button2"}>
                             Book Now
                         </button>
 
