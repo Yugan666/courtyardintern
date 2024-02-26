@@ -29,7 +29,12 @@
     "split-type": "^0.3.4",
     "web-vitals": "^2.1.4"
   },
- 
+  "overrides": {
+    "@svgr/webpack":"$@svgr/webpack"
+  },
+  "resolutions": {
+    "postcss": "8.2.10"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
