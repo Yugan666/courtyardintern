@@ -157,10 +157,10 @@ const Hero = () => {
                     <SliderPage />
                 </div>
 
-                {/* hover rooms */}
+                {/* hover rooms */} 
 
                 <div className="hidden md:block">
-                    <div className= {isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#c19df0] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' :isHovering3?"h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]":'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'  }>
+                    <div className= {isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#c2b0da] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' :isHovering3?"h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]":'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'  }>
 
                             <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove}  
                                     onMouseOut={() => setIsHovering(false)}>
