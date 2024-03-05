@@ -25,10 +25,11 @@ import SliderPage from './Slider'
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom'
 import { useAnim } from './Context'
+import AnimatedHeading from './AnimatedHeading'
 
 const Hero = () => {
 
-   const {ref} = useAnim()
+    const { ref } = useAnim()
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -69,7 +70,7 @@ const Hero = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [position2, setPosition2] = useState({ x: 0, y: 0 });
     const [position3, setPosition3] = useState({ x: 0, y: 0 });
-    
+
 
     // Handle mouse moving over the component
     const handleMouseMove = (e) => {
@@ -94,12 +95,11 @@ const Hero = () => {
     return (
         <>
 
-            <div className="slider sticky top-0 h-screen w-full bg-gradient-to-tl from-gray-700 to-gray-700 -z-10" >
+            <div className="slider sticky top-0 h-screen w-full -z-10" >
                 <Slider {...settings} className='bg-hero '>
                     <img src={hero2} alt="hero-bg" className='bg-cover bg-no-repeat bg-center h-screen w-full' />
                     <img src={hero1} alt="hero-bg" className='bg-cover bg-no-repeat bg-center h-screen w-full' />
                     <img src={hero3} alt="hero-bg" className='bg-cover bg-no-repeat bg-center h-screen w-full' />
-
                 </Slider>
 
             </div>
@@ -107,15 +107,13 @@ const Hero = () => {
 
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]' >Courtyard Castle</h1>
+                    {/* <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1> */}
+                   <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'> <AnimatedHeading className='font-anti text-5xl md:text-[80px] font-w-[400px]' title="Courtyard Castle" /></h1>
                     <p className='font-curban text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
                 </div>
-
-
-
             </div>
 
             {/* scroll donw */}
@@ -131,7 +129,12 @@ const Hero = () => {
             <div className="bg-white h-max">
 
                 <div className=" h-[300px] md:h-screen items-center bg-white  justify-center flex text-center px-[20px] md:px-[100px] text-[#5C6C68]">
-                    <h2 className='text-2xl md:text-[64px] leading-snug  font-anti anim ' ref={ref}>The stay at Courtyard Castle  means enjoying every moment. Relax. Find inspiration. Be fascinated.</h2>
+                    <h2 className='lg:text-7xl sm:text-2xl leading-snug  font-anti duration-150 ' data-aos='zoom-in' data-aos-delay='600'>
+                        <span >
+                            The stay at Courtyard Castle  means
+                        </span>
+                        <br /> <span >enjoying every moment. Relax. Find </span>
+                        <br /><span > inspiration. Be fascinated.</span></h2>
                 </div>
 
                 <div className=" px-[20px] md:px-[100px] w-full  relative md:h-[400px] flex items-center justify-between">
@@ -142,7 +145,7 @@ const Hero = () => {
                     <div className=" md:block hidden">
                         <h2 className='text-4xl md:text-[128px] text-[#5C6C68] font-anti opacity-50 ' >SPACES</h2>
 
-                        <h4 className='text-[#5C6C68] font-urban text-2xl md:text[40px]  absolute text-center bottom-0 left-1/2 -translate-x-1/2 '>
+                        <h4 className='text-[#5C6C68] font-urban text-2xl md:text[40px]   absolute text-center bottom-0 left-1/2 -translate-x-1/2 '>
                             COME AS YOU ARE AND WE WILL TAKE CARE OF THE REST
                         </h4>
                     </div>
@@ -157,78 +160,78 @@ const Hero = () => {
                     <SliderPage />
                 </div>
 
-                {/* hover rooms */} 
+                {/* hover rooms */}
 
                 <div className="hidden md:block">
-                    <div className= {isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#c2b0da] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' :isHovering3?"h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]":'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'  }>
+                    <div className={isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#c2b0da] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' : isHovering3 ? "h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : 'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'}>
 
-                            <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove}  
-                                    onMouseOut={() => setIsHovering(false)}>
+                        <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove}
+                            onMouseOut={() => setIsHovering(false)}>
 
-                                <h2 onMouseOver={() => setIsHovering(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] '>Rooms</h2>
-                             
-                            </div>
-                            <div className="absolute top-[-250px] left-[-80px] h-screen">
+                            <h2 onMouseOver={() => setIsHovering(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] '>Rooms</h2>
+
+                        </div>
+                        <div className="absolute top-[-250px] left-[-80px] h-screen">
                             {
-                                    isHovering && <img src={gallery1} alt="Gallery_img" className='left-0 ' style={{
-                                        display: 'block',
-                                        position: 'absolute',
-                                        left: position.x,
-                                        top: position.y,
-                                        pointerEvents: 'none',
-                                        minWidth: '800px',
-                                        height: '400px',
-                                        objectFit:'cover'
-                                    }} />
-                                }
-                            </div>
-                            <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove2}  
-                                    onMouseOut={() => setIsHovering2(false)}>
+                                isHovering && <img src={gallery1} alt="Gallery_img" className='left-0 ' style={{
+                                    display: 'block',
+                                    position: 'absolute',
+                                    left: position.x,
+                                    top: position.y,
+                                    pointerEvents: 'none',
+                                    minWidth: '800px',
+                                    height: '400px',
+                                    objectFit: 'cover'
+                                }} />
+                            }
+                        </div>
+                        <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove2}
+                            onMouseOut={() => setIsHovering2(false)}>
 
-                                <h2 onMouseOver={() => setIsHovering2(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] '>Suites</h2>
-                                
-                            </div>
+                            <h2 onMouseOver={() => setIsHovering2(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] '>Suites</h2>
 
-                            <div className="absolute top-[-250px] right-[-300px] h-screen">
+                        </div>
+
+                        <div className="absolute top-[-250px] right-[-300px] h-screen">
                             {
-                                    isHovering2 && <img src={gallery2} alt="galleryImg" className='' style={{
-                                        display: 'block',
-                                        position: 'absolute',
-                                        right: position2.x,
-                                        top: position2.y,
-                                        pointerEvents: 'none',
-                                        minWidth: '800px',
-                                        height: '400px',
-                                        objectFit:'cover',
-                                    }} />
-                                }
-                            </div>
-                            <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove3} 
-                                    onMouseOut={() => setIsHovering3(false)}>
+                                isHovering2 && <img src={gallery2} alt="galleryImg" className='' style={{
+                                    display: 'block',
+                                    position: 'absolute',
+                                    right: position2.x,
+                                    top: position2.y,
+                                    pointerEvents: 'none',
+                                    minWidth: '800px',
+                                    height: '400px',
+                                    objectFit: 'cover',
+                                }} />
+                            }
+                        </div>
+                        <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove3}
+                            onMouseOut={() => setIsHovering3(false)}>
 
-                                <h2 onMouseOver={() => setIsHovering3(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] ' >Villas</h2>
-                              
-                            </div>
+                            <h2 onMouseOver={() => setIsHovering3(true)} className='hover:tracking-[10px] cursor-pointer z-20 hover:text-white text-[100px] w-full inline-block relative top-[250px] ' >Villas</h2>
 
-                            <div className="absolute top-[-250px] right-[-1000px] h-screen">
+                        </div>
+
+                        <div className="absolute top-[-250px] right-[-1000px] h-screen">
                             {
-                                    isHovering3 && <img src={gallery3} alt="gallery" className='' style={{
-                                        display: 'block',
-                                        position: 'absolute',
-                                        right: position3.x,
-                                        top: position3.y,
-                                        pointerEvents: 'none',
-                                        minWidth: '800px',
-                                        height: '400px',
-                                        objectFit:'cover'
-                                    }} />
-                                }
-                            </div>
-                     
-                        
+                                isHovering3 && <img src={gallery3} alt="gallery" className='' style={{
+                                    display: 'block',
+                                    position: 'absolute',
+                                    right: position3.x,
+                                    top: position3.y,
+                                    pointerEvents: 'none',
+                                    minWidth: '800px',
+                                    height: '400px',
+                                    objectFit: 'cover'
+                                }} />
+                            }
+                        </div>
 
 
-                        
+
+
+
 
 
                         {/* <div className="relative hover:text-white hidden md:block">
@@ -256,20 +259,20 @@ const Hero = () => {
                             </div>
                         </div> */}
 
-                      
+
 
                     </div>
                 </div>
                 <div className="h-300px md:hidden flex flex-col items-center justify-center mt-40 space-y-12 text-[#5C6C68] font-[anti]">
-                <div className="md:hidden text-[60px]">
-                            <Link to='/rooms'>Room</Link>
-                        </div>
-                        <div className="md:hidden text-[60px]">
-                            <Link to='/rooms'>Suites</Link>
-                        </div>
-                        <div className="md:hidden text-[60px]">
-                            <Link to='/rooms'>Villas</Link>
-                        </div>
+                    <div className="md:hidden text-[60px]">
+                        <Link to='/rooms'>Room</Link>
+                    </div>
+                    <div className="md:hidden text-[60px]">
+                        <Link to='/rooms'>Suites</Link>
+                    </div>
+                    <div className="md:hidden text-[60px]">
+                        <Link to='/rooms'>Villas</Link>
+                    </div>
 
                 </div>
                 {/* expolare */}
@@ -311,11 +314,11 @@ const Hero = () => {
                     <h2 className=' text-xl md:text-3xl'>Explore our Virtual tour for our premium , <br /> resort for our visitors in to life</h2>
                     <p>At Aeorian , we believe that the ultimate luxury lies in the time and .</p>
 
-                   
-                   <button class="inline-block items-center transition-all duration-200 relative overflow-hidden z-10 text-[#5C6C68] md:px-7 exp-button px-3 md:py-2 py-1 cursor-pointer text-lg  bg-transparent border border-[#5C6C68] hover:text-white shadow-lg  button3">
-                   <a href="https://cdn.illusiview.com/Arch4Foundation/index.htm" target='_blank'>
-                        <div className="flex items-center "><span className='pr-3 iconsd'><FaArrowRightLong /></span><span className=''>Explore Virual tour</span></div>
-                   </a>
+
+                    <button class="inline-block items-center transition-all duration-200 relative overflow-hidden z-10 text-[#5C6C68] md:px-7 exp-button px-3 md:py-2 py-1 cursor-pointer text-lg  bg-transparent border border-[#5C6C68] hover:text-white shadow-lg  button3">
+                        <a href="https://cdn.illusiview.com/Arch4Foundation/index.htm" target='_blank'>
+                            <div className="flex items-center "><span className='pr-3 iconsd'><FaArrowRightLong /></span><span className=''>Explore Virual tour</span></div>
+                        </a>
                     </button>
                 </div>
 
@@ -424,13 +427,13 @@ const Hero = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3  px-[10px] md:px-[100px] gap-4  pb-5 ">
                     <div className="overflow-hidden sticky top-14 md:top-0 sm:-z-20 md:z-0 ">
-                    <img src={imgOne} alt="gallery-imgs" className='object-contain  zom' data-aos='fade-up' data-aos-delay='600' />
+                        <img src={imgOne} alt="gallery-imgs" className='object-contain  zom' data-aos='fade-up' data-aos-delay='600' />
                     </div>
                     <div className="overflow-hidden sticky top-14 md:top-0 sm:-z-10 md:z-0">
-                    <img src={imgTwo} alt="gallery-imgs" className='object-contain zom' data-aos='fade-down' data-aos-delay='600' />
+                        <img src={imgTwo} alt="gallery-imgs" className='object-contain zom' data-aos='fade-down' data-aos-delay='600' />
                     </div>
                     <div className="overflow-hidden">
-                    <img src={imgThree} alt="gallery-imgs" className='object-contain zom' data-aos='fade-up' data-aos-delay='600' />
+                        <img src={imgThree} alt="gallery-imgs" className='object-contain zom' data-aos='fade-up' data-aos-delay='600' />
                     </div>
                 </div>
             </div>

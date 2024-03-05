@@ -8,7 +8,7 @@ import { useAnim } from './Context'
 
 
 const Slider = () => {
-  const {ref}=useAnim()
+  const { ref } = useAnim()
   const settings = {
     dots: true,
     infinite: true,
@@ -22,39 +22,33 @@ const Slider = () => {
     // Add any more settings you require
   };
 
- 
+
   return (
 
     <>
-
-
-
       <div className="relative md:h-screen  h-auto w-full">
 
-        <div className="absolute top-0 left-0 h-auto md:h-[300px] w-full bg-[#C7D4D1]"></div>
-        <div className=" mx-auto flex items-center justify-center absolute z-10 h-screen w-full">
-                <div className="bg-white absolute top-24 z-10 p-[20px] w-[250px] md:w-[300px] text-wrap ">
-                  <div className="border border-gray-300 p-[30px] text-center">
-                    <p className='font-urban text-md md:text-xl anim' ref={ref} > Courtyard Castle , we believe that the ultimate luxury lies in the time and connections we make. Hence, the facilities and experiences are carefully </p>
-                  </div>
-                </div>
+        <div className="absolute h-auto md:h-screen w-full bg-[#C7D4D1]"></div>
+        <div className=" mx-auto flex items-center justify-center absolute z-10 md:h-[80vh] top-14 w-full">
+          <div className="bg-white absolute top-24 z-10 p-[20px] w-[250px] md:w-[350px] 2xl:w-[400px] text-wrap ">
+            <div className="border border-gray-300 p-[30px] text-center">
+              <p className='font-urban text-md md:text-xl 2xl:text-2xl anim' ref={ref} > Courtyard Castle , we <br />  believe that the ultimate <br /> luxury lies in the time and <br /> connections we make. <br /> Hence, the facilities and  <br />experiences are carefully </p>
+            </div>
+          </div>
 
-              </div>
+        </div>
+
         <div className=" w-full md:w-[80vw] mx-auto  overflow-hidden items-center justify-center h-screen">
           <Sliders {...settings} className='w-full overflow-hidden sm:h-[500px] md:h-[80vh] top-14 relative'>
 
-          
-
             <div className="h-screen relative ">
-            
 
               <div className="absolute flex items-center justify-center h-[500px] md:h-screen w-full">
                 <img src={slider} alt="Slider_img" className='bg-center bg-cover  object-cover w-full h-[500px] md:h-screen  slow-spin' />
-
               </div>
             </div>
             <div className="h-screen relative ">
-            
+
 
               <div className="absolute flex items-center justify-center h-[500px] md:h-screen w-full">
                 <img src={slider2} alt="Slider_img" className='bg-center bg-cover  object-cover w-full h-[500px] md:h-screen  slow-spin' />
@@ -62,7 +56,7 @@ const Slider = () => {
               </div>
             </div>
             <div className="h-screen relative ">
-            
+
 
               <div className="absolute flex items-center justify-center h-[500px] md:h-screen w-full">
                 <img src={slider3} alt="Slider_img" className='bg-center bg-cover  object-cover w-full h-[500px] md:h-screen  slow-spin' />
@@ -80,11 +74,10 @@ const Slider = () => {
             </div> */}
 
           </Sliders>
-
         </div>
       </div>
 
-   
+
 
 
     </>

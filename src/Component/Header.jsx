@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import cross from '../assets/images/int.svg'
+import shopingBag from '../assets/images/shopping-bag.png'
 import { Link } from 'react-router-dom'
 import './Animation.css'
 
 const Header = () => {
 
-
     const [nav, setNav] = useState(false);
-
     const [visible, setVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [btn,setBtn] =useState(false)
+    const [btn, setBtn] = useState(false)
 
     const handleScroll = () => {
         const currentScrollPos = window.pageYOffset;
@@ -29,26 +28,48 @@ const Header = () => {
         } else {
             setBtn(false);
         }
-        
+
     };
 
     useEffect(() => {
         // Add event listener when the component mounts
         window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        
     }, [prevScrollPos]);
 
 
 
+    // ============================
 
+    const navRef = useRef(null);
 
-
+    const handleMouseMove = (e) => {
+      const nav = navRef.current;
+      if (!nav) return;
+  
+      const hoverLine = nav.querySelector('.hover-line'); // Assuming .hover-line is the class for the mouse-follow effect
+      const rect = nav.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the nav
+  
+      // Adjust the position of the hover-line based on mouse position
+      hoverLine.style.width = '100px'; // Width of the hover line
+      hoverLine.style.left = `${x}px`;
+      hoverLine.style.opacity = 1;
+    };
+  
+    const handleMouseLeave = () => {
+      const nav = navRef.current;
+      if (!nav) return;
+  
+      const hoverLine = nav.querySelector('.hover-line');
+      hoverLine.style.opacity = 0; // Hide the hover line
+    };
+  
+   
     return (
         <>
-            <div className="bg-color w-full delay-300 ">
+            <div className="bg-color w-full delay-300 overflow-hidden">
 
                 {/* top nav */}
 
@@ -56,14 +77,15 @@ const Header = () => {
                     <div className=""></div>
                     <div className="center-nav">
                         <Link to='/'>
-                            <h3 className='font-logo text-[16px] md:text-2xl font-bold text-white'>Courtyard </h3>
+                            <h3 className='font-logo text-[16px] md:text-3xl xxl:text-5xl font-bold text-white 2xl:text-[40px]'>Courtyard </h3>
                         </Link>
                     </div>
                     <div className=""></div>
                 </div>
                 {/* bottom nav */}
-                <div className="bot-nav border-b border-gray-300  py-3 text-white">
-                    <ul className='flex items-center border-b-transparent justify-center w-screen space-x-5 md:space-x-16 '>
+                <div className="bot-nav border-b border-gray-300  py-3 text-white" onMouseLeave={handleMouseLeave}>
+                    <ul className='flex items-center border-b-transparent justify-center w-screen space-x-5 md:space-x-16 ' ref={navRef} onMouseMove={handleMouseMove}>
+                    <div className="hover-line absolute bottom-0 bg-white h-0.5 opacity-0 transition-opacity duration-300"></div>
                         <Link to='/about'><li className='navLinks' >Our Story</li></Link>
                         <Link to='/rooms'><li className='navLinks'>Rooms</li></Link>
                         <Link to='/'><li className='navLinks'>Events</li></Link>
@@ -75,10 +97,10 @@ const Header = () => {
 
 
             <div className="w-full mx-auto" style={{ display: visible ? 'block' : 'none' }}>
-                <div className="botom flex items-center justify-between fixed top-1  md:w-[100vw] z-50 w-[100vw] pt-2 md:pt-0 md:pr-0" >
+                <div className="botom flex items-center justify-between fixed top-1  md:w-[100vw] z-50 w-[100vw] pt-2 md:pt-0 md:pr-0 px-2" >
                     <div className="left-nav">
                         <div>
-                            <button className={btn?"btn-bg relative group flex items-center md:left-5":" relative group flex items-center md:left-5"  } onClick={() => setNav(!nav)}>
+                            <button class="flex items-center transition-all duration-200 relative md:left-5 overflow-hidden z-10 text-white md:px-2 px-2  md:py-0 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg " onClick={() => setNav(!nav)}>
                                 <div className="relative flex overflow-hidden items-center justify-center rounded-full w-auto md:w-[50px] h-auto p-2 md:p-0 md:h-[50px] transform transition-all duration-200 ">
                                     <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                                         <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:rotate-[42deg]"></div>
@@ -124,13 +146,14 @@ const Header = () => {
 
                     <div className="right-nav">
 
-                        <button class={btn?"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7 px-2  md:py-3 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-black btn-bg  button2":"inline-block transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-7 px-2 md:py-3 py-1 cursor-pointer md:text-lg text-md border rounde-line shadow-lg hover:text-black  button2"}>
-                            Book Now
+                        <button class="flex items-center transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-4 px-2  md:py-3 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg ">
+                            <span>Booking</span> <span><img src={shopingBag} alt="shopingBag" className='w-4 ml-2' /></span>
                         </button>
 
                         {/* <button className=''>Book Now</button> */}
                     </div>
                 </div>
+               
             </div>
 
 
