@@ -12,7 +12,7 @@ const ExpolareSlider = () => {
 
     const images = [
         {
-            name: `Pondicherry  Mandapam2`,
+            name: `Pondicherry  Mandapam1`,
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iste in dolore beatae debitis fugit velit harum eligendi nulla vitae.',
             img: hall
         },

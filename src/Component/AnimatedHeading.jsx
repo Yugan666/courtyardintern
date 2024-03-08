@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react';
-// import './AnimatedHeading.css'; // Make sure to create this CSS file with the styles provided earlier
+import React from 'react';
+// import './TextAnimation.css'; // Ensure to import the CSS file
 
-const AnimatedHeading = ({ title }) => {
-  const [displayedChars, setDisplayedChars] = useState([]);
-  const [isRemoving, setIsRemoving] = useState(false);
-
-  useEffect(() => {
-    if (!isRemoving && displayedChars.length < title.length) {
-      const timeoutId = setTimeout(() => {
-        setDisplayedChars(currentChars => [...currentChars, title[currentChars.length]]);
-      }, 200);
-      return () => clearTimeout(timeoutId);
-    } 
-  }, [displayedChars, isRemoving, title]);
-
-  useEffect(() => {
-    if (displayedChars.length === title.length) {
-      setIsRemoving(true);
-    }
-  }, [displayedChars, title.length]);
-
+const TextAnimation = ({ text }) => {
   return (
-    <div className="heading" data-title={title}>
-      {displayedChars.map((char, index) => (
-        <span key={index} className={isRemoving ? 'animationTwo' : 'animationOne'}>
+    <div className="text-animation-container">
+      {text.split('').map((char, index) => (
+        <span key={index} className="animated-letter" style={{ animationDelay: `${index * 0.1}s` }}>
           {char}
         </span>
       ))}
@@ -31,4 +13,4 @@ const AnimatedHeading = ({ title }) => {
   );
 };
 
-export default AnimatedHeading;
+export default TextAnimation;

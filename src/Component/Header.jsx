@@ -77,7 +77,7 @@ const Header = () => {
                     <div className=""></div>
                     <div className="center-nav">
                         <Link to='/'>
-                            <h3 className='font-logo text-[16px] md:text-3xl xxl:text-5xl font-bold text-white 2xl:text-[40px]'>Courtyard </h3>
+                            <h3 className='font-logo text-xl md:text-3xl font-bold text-white 2xl:text-4xl'>Courtyard </h3>
                         </Link>
                     </div>
                     <div className=""></div>
@@ -100,7 +100,7 @@ const Header = () => {
                 <div className="botom flex items-center justify-between fixed top-1  md:w-[100vw] z-50 w-[100vw] pt-2 md:pt-0 md:pr-0 px-2" >
                     <div className="left-nav">
                         <div>
-                            <button class="flex items-center transition-all duration-200 relative md:left-5 overflow-hidden z-10 text-white md:px-2 px-2  md:py-0 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg " onClick={() => setNav(!nav)}>
+                            <button class="flex items-center transition-all duration-200 relative md:left-5 overflow-hidden z-10 text-white md:px-2 px-2   py-0 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg " onClick={() => setNav(!nav)}>
                                 <div className="relative flex overflow-hidden items-center justify-center rounded-full w-auto md:w-[50px] h-auto p-2 md:p-0 md:h-[50px] transform transition-all duration-200 ">
                                     <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
                                         <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:rotate-[42deg]"></div>
@@ -146,7 +146,7 @@ const Header = () => {
 
                     <div className="right-nav">
 
-                        <button class="flex items-center transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-4 px-2  md:py-3 py-1 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg ">
+                        <button class="flex items-center transition-all duration-200 relative md:right-10 overflow-hidden z-10 text-white md:px-4 px-2  md:py-3 py-2 cursor-pointer md:text-lg text-md  shadow-lg hover:text-white hover:bg-[#252525] btn-bg ">
                             <span>Booking</span> <span><img src={shopingBag} alt="shopingBag" className='w-4 ml-2' /></span>
                         </button>
 

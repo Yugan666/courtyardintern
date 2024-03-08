@@ -29,10 +29,16 @@ const Slider = () => {
       <div className="relative md:h-screen  h-auto w-full">
 
         <div className="absolute h-auto md:h-screen w-full bg-[#C7D4D1]"></div>
-        <div className=" mx-auto flex items-center justify-center absolute z-10 md:h-[80vh] top-14 w-full">
-          <div className="bg-white absolute top-24 z-10 p-[20px] w-[250px] md:w-[350px] 2xl:w-[400px] text-wrap ">
+        <div className=" mx-auto flex items-center justify-center absolute z-10 md:h-[100vh] top-4 w-full">
+          <div className="bg-white absolute top-24 z-10 p-[20px] w-[300px] md:w-[400px]  xl:w-[450px] text-wrap ">
             <div className="border border-gray-300 p-[30px] text-center">
-              <p className='font-urban text-md md:text-xl 2xl:text-2xl anim' ref={ref} > Courtyard Castle , we <br />  believe that the ultimate <br /> luxury lies in the time and <br /> connections we make. <br /> Hence, the facilities and  <br />experiences are carefully </p>
+              <div className='font-urban text-md md:text-2xl xl:text-2xl anim space-y-3 ' > 
+              <p>Courtyard Castle , we</p> 
+               <p data-aos='fade-bottom' data-aos-delay='100'>believe that the ultimate</p> 
+             <p data-aos='fade-bottom' data-aos-delay='300'>luxury lies in the time and</p> 
+             <p data-aos='fade-bottom' data-aos-delay='500'>connections we make. </p>
+             <p data-aos='fade-bottom' data-aos-delay='700'>Hence, the facilities and</p>  
+            <p data-aos='fade-bottom' data-aos-delay='900'>experiences are carefully</p> </div>
             </div>
           </div>
 

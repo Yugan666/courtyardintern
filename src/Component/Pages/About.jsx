@@ -8,6 +8,7 @@ import aboutThree from '../../assets/images/about-31.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useAnim } from '../Context'
+import TextAnimation from '../AnimatedHeading'
 
 
 const About = () => {
@@ -29,8 +30,8 @@ const About = () => {
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
 
                 <div className="h-screen items-center justify-center flex flex-col  text-center text-white space-y-10">
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
-                    <p className='font-curban text-2xl anim' ref={ref}>
+                <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
+                    <p className='font-curban sm:md text-xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>

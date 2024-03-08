@@ -486,3 +486,84 @@ transition: 1s ease-in-out;
     filter: blur(5px);
   }
 }
+
+.zoom-custom{
+  opacity: 1;
+  scale: 0.7;
+}
+.font-anim{
+  transform: scaleX(1);
+  animation: font-anim 9s ease-in-out;
+  transition: all 10s;
+}
+@keyframes font-anim{
+  0%{
+    transform: scaleX(0.7);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}
+
+
+/* Custom AOS animation for a very smooth and slow scale transition */
+[data-aos="new-animation"] {
+  opacity: 0;
+  transform: scale(0.8); /* Start closer to 1 for a more subtle scale increase */
+  transition-property: transform, opacity;
+  transition-duration: 5s; /* Long duration for a very slow transition */
+  transition-timing-function: ease-in-out; /* Smooth acceleration and deceleration */
+}
+
+@keyframes newcheck {
+  0%{
+    transform: scale(3);
+  }
+  100%{
+    transform: scale(4);
+  }
+}
+
+
+
+
+[data-aos="new-animation"].aos-animate {
+  animation: newcheck 5s ease-in-out;
+  opacity: 1;
+  transform: scale(4);
+}
+
+[data-aos="new-animation"] {
+  will-change: transform, opacity;
+}
+
+
+/* ----------head anim text-------------- */
+/* TextAnimation.css */
+
+.text-animation-container {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animated-letter {
+  display: inline-block;
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slideIn 0.6s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.wave-shape{
+  background-color: #646968;
+}

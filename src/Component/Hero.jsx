@@ -25,7 +25,8 @@ import SliderPage from './Slider'
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom'
 import { useAnim } from './Context'
-import AnimatedHeading from './AnimatedHeading'
+import TextAnimation from './AnimatedHeading'
+
 
 const Hero = () => {
 
@@ -105,11 +106,11 @@ const Hero = () => {
             </div>
 
 
-            <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
+            <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2 w-full">
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
                     {/* <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1> */}
-                   <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'> <AnimatedHeading className='font-anti text-5xl md:text-[80px] font-w-[400px]' title="Courtyard Castle" /></h1>
-                    <p className='font-curban text-2xl anim' ref={ref}>
+                    <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
+                    <p className='font-curban sm:md text-xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
@@ -128,13 +129,20 @@ const Hero = () => {
 
             <div className="bg-white h-max">
 
-                <div className=" h-[300px] md:h-screen items-center bg-white  justify-center flex text-center px-[20px] md:px-[100px] text-[#5C6C68]">
-                    <h2 className='lg:text-7xl sm:text-2xl leading-snug  font-anti duration-150 ' data-aos='zoom-in' data-aos-delay='600'>
-                        <span >
-                            The stay at Courtyard Castle  means
-                        </span>
-                        <br /> <span >enjoying every moment. Relax. Find </span>
-                        <br /><span > inspiration. Be fascinated.</span></h2>
+                <div className=" h-[300px] md:h-screen items-center bg-white font-anti  justify-center flex text-center px-[20px] md:px-[100px] text-[#5C6C68]">
+                    <h2 className='hidden md:block' data-aos="new-animation" data-aos-delay='100' data-aos-duration='5000'>
+                        <span>The stay at Courtyard Castle means</span>
+                        <br /><span>enjoying every moment. Relax. Find</span>
+                        <br /><span>inspiration. Be fascinated.</span>
+                    </h2>
+
+                    <h2 className='md:hidden' >
+                        <span>The stay at Courtyard Castle means</span>
+                        <br /><span>enjoying every moment. Relax. Find</span>
+                        <br /><span>inspiration. Be fascinated.</span>
+                    </h2>
+
+
                 </div>
 
                 <div className=" px-[20px] md:px-[100px] w-full  relative md:h-[400px] flex items-center justify-between">
@@ -156,7 +164,7 @@ const Hero = () => {
 
 
                 {/* carosuel slider-1 */}
-                <div className="h-[500px] md:h-screen my-[20px] md:my-[100px] relative  ">
+                <div className="h-[500px] md:h-screen mt-8 relative  ">
                     <SliderPage />
                 </div>
 
@@ -293,8 +301,8 @@ const Hero = () => {
 
                 {/* story */}
 
-                <div className="h-auto px-[10px] md:px-[100px] py-[20px]">
-                    <h2 className='text-4xl md:text-[128px] font-anti text-[#5c6c68] text-right opacity-50' data-aos='zoom-in' data-aos-delay='600'>Story</h2>
+                <div className="h-auto px-[10px] md:px-[100px] xl:mt-28 py-[20px]">
+                    <h2 className='text-4xl md:text-[128px] font-anti text-[#5c6c68] text-right opacity-50 ' data-aos='zoom-in' data-aos-delay='600'>Story</h2>
 
                 </div>
                 <div className="flex items-center justify-between mb-[100px] w-fit">
@@ -311,8 +319,8 @@ const Hero = () => {
                 <h2 className='text-4xl md:text-[128px] text-[#5c6c68] font-anti  px-[10px] md:px-[100px] sm:py-[10px] md:my-44 opacity-50' data-aos='zoom-in' data-aos-delay='600'>Experience</h2>
 
                 <div className="bg-[#DEE2E1] h-[300px] md:h-[500px] py-[10px] md:py-[50px] text-[#5C6C68] text-center font-urban space-y-8 md:space-y-11">
-                    <h2 className=' text-xl md:text-3xl'>Explore our Virtual tour for our premium , <br /> resort for our visitors in to life</h2>
-                    <p>At Aeorian , we believe that the ultimate luxury lies in the time and .</p>
+                    <h2 className=' text-xl md:text-3xl xl:text-5xl'>Explore our Virtual tour for our premium , <br /> resort for our visitors in to life</h2>
+                    <p className='text-xl xl:text-2xl'>At Aeorian , we believe that the ultimate luxury lies in the time and .</p>
 
 
                     <button class="inline-block items-center transition-all duration-200 relative overflow-hidden z-10 text-[#5C6C68] md:px-7 exp-button px-3 md:py-2 py-1 cursor-pointer text-lg  bg-transparent border border-[#5C6C68] hover:text-white shadow-lg  button3">
@@ -341,7 +349,7 @@ const Hero = () => {
 
                 {/* same page  */}
 
-                <h2 className='text-3xl md:text-[128px] text-[#5C6C68] font-anti mt-16 opacity-50 md:hidden px-[30px] ' data-aos='zoom-in' data-aos-delay='600'>Dinning</h2>
+                <h2 className='text-3xl md:text-[128px] text-[#5C6C68] font-anti mt-16  opacity-50 md:hidden px-[30px] ' data-aos='zoom-in' data-aos-delay='600'>Dinning</h2>
 
                 <div className=" px-[10px] md:px-[100px]  relative my-[80px] h-[80px] md:h-[300px] flex items-center justify-between">
                     <div className=' hidden md:block'>
@@ -352,7 +360,7 @@ const Hero = () => {
                     <div className="text-[#5c6c68] ">
                         <h2 className='text-3xl md:text-[128px] text-[#5C6C68] font-anti opacity-50 hidden md:block' data-aos='zoom-in' data-aos-delay='600'>Dinning</h2>
 
-                        <h4 className='text-[#5C6C68] font-urban text-xl md:text[40px]  absolute text-center md:bottom-0 bottom-12 md:left-1/2 px-[30px] md:px-[0px] md:-translate-x-1/2 '>
+                        <h4 className='text-[#5C6C68] font-urban sm:text-xl md:text-2xl  xl:text-3xl  absolute text-center md:bottom-0 bottom-12 md:left-1/2 px-[30px] md:px-[0px] md:-translate-x-1/2 '>
                             Explore our dinning Indian  traditional food for our premium , resort for our visitors in to life
                         </h4>
                     </div>
@@ -399,7 +407,7 @@ const Hero = () => {
 
                 {/* revievs */}
 
-                <div className=" mt-[60px] md:mt-[200px] px-[10px] md:px-[100px]">
+                <div className=" mt-[60px] md:mt-[200px] xl:mt-[300px]  relative px-[10px] md:px-[100px]">
                     <h2 className='text-4xl md:text-[128px] font-anti my-12 md:my-44 opacity-50'>Reviews</h2>
                 </div>
 
