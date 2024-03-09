@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import gallery from '../../assets/images/gallery-bg.png'
 import downarrow from '../../assets/images/down-arrow.svg'
 import circleText from '../../assets/images/circle-text.png'
@@ -14,13 +14,97 @@ import galNighen from '../../assets/images/gal-9.png'
 import galTen from '../../assets/images/gal-10.png'
 import galElevan from '../../assets/images/gal-11.png'
 import galtwelle from '../../assets/images/gal-12.png'
+import cross from '../../assets/images/int.svg'
 import 'aos/dist/aos.css';
 import Aos from 'aos'
+import TextAnimation from '../AnimatedHeading'
+
+
+const galleryData = [
+    {
+        id: 1,
+        img: galOne,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 2,
+        img: galTwo,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 3,
+        img: galThree,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 4,
+        img: galFour,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 5,
+        img: galFive,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 6,
+        img: galSix,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 7,
+        img: galSeven,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 8,
+        img: galEight,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 9,
+        img: galNighen,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 10,
+        img: galTen,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 11,
+        img: galElevan,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+    {
+        id: 12,
+        img: galtwelle,
+        title1: "SPECIALIZE",
+        title2: "Double Cetric HeRoom",
+    },
+]
 
 const Gallery = () => {
-    document.addEventListener('DOMContentLoaded',(e)=>{
+    document.addEventListener('DOMContentLoaded', (e) => {
         Aos.init()
     })
+
+    const [selected, setSelected] = useState(null);
+
+    const handelClick = (index) => {
+        setSelected(galleryData[index]);
+    }
 
     return (
         <>
@@ -34,7 +118,7 @@ const Gallery = () => {
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
 
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
+                    <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
                     <p className='font-curban text-2xl'>
                         Culinary art is an important part of the <br />
                         unforgettable experience
@@ -56,90 +140,42 @@ const Gallery = () => {
 
 
             <div className=" ">
-                <h2 className='text-4xl md:text-[128px] text-right p-[10px] md:p-[100px] text-[#5C6C68] font-anti opacity-50' data-aos='zoom-in' data-aos-delay='600'>Our Gallery</h2>
+                <h2 className='text-4xl md:text-[78px] text-right p-[10px] md:pt-[40px] text-[#5C6C68] font-anti opacity-50' data-aos='zoom-in' data-aos-delay='600'>Our Gallery</h2>
             </div>
 
 
             {/* gallery imgaes */}
 
+            {
+                selected !== null &&
+                <div className="pop-up-gallery">
+                    <img src={cross} alt="int" className='cross-int' onClick={() => setSelected(null)} />
+                    <div className="img-part">
+                        <img src={selected.img} alt="galleryImg" />
+                    </div>
+                </div>
+            }
+
             <div className="p-[10px] md:p-[100px]">
 
-                <div className="grid md:grid-cols-4 grid-cols-2 gap-x-2  min-w-full  mt-10 items-start">
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galOne} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
+                <div className="grid md:grid-cols-4 grid-cols-2 gap-2   min-w-full  items-start">
+                    {
+                        galleryData.map((item, index) => (
+                            <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600' key={index}>
+                                <img src={item.img} alt="gallery" className='object-contain zom' onClick={() => handelClick(index)} />
+                                <p className='font-urban -tracking-tighter text-md xl:text-2xl mt-8 text-[#292E36]'>{item.title1}</p>
+                                <p className='font-anti text-[#5C6C68] text-xl xl:text-2xl'>{item.title2}</p>
 
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galTwo} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galThree} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galFour} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
+                            </div>
+                        ))
+                    }
 
-                    </div>
-
-                    <div className="grid md:grid-cols-4 grid-cols-2 items-end gap-x-2  min-w-full   ">
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galFive} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galSix} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galSeven} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galEight} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-
-                    </div>
-
-                   
-
-                 <div className="grid md:grid-cols-4 grid-cols-2 gap-x-2  min-w-full  my-14 items-start">
-                 <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galNighen} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galTen} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galElevan} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-                    <div className="w-full overflow-hidden" data-aos='zoom-in' data-aos-delay='600'>
-                        <img src={galtwelle} alt="gallery" className='object-contain zom' />
-                        <p className='font-urban -tracking-tighter text-md mt-8 text-[#292E36]'>SPECIALIZE</p>
-                        <p className='font-anti text-[#5C6C68] text-xl'>Double Cetric HeRoom</p>
-                    </div>
-
-                 </div>
                 </div>
-            
+            </div>
+
+
+
+
 
         </>
     )

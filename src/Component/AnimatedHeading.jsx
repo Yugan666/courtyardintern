@@ -5,7 +5,7 @@ const TextAnimation = ({ text }) => {
   return (
     <div className="text-animation-container">
       {text.split('').map((char, index) => (
-        <span key={index} className="animated-letter" style={{ animationDelay: `${index * 0.1}s` }}>
+        <span key={index} className="animated-letter" style={{ animationDelay: `${index * 0.1}s`,whiteSpace: 'pre-wrap' }}>
           {char}
         </span>
       ))}

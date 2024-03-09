@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import bg from '../../assets/images/bg-1.png'
 import downarrow from '../../assets/images/down-arrow.svg'
 import circleText from '../../assets/images/circle-text.png'
-import sideBg from '../../assets/images/menu-side-1.png'
+import sideBg from '../../assets/images/side-plate.png'
 import foodOne from '../../assets/images/food-1.png'
 import foodTwo from '../../assets/images/food-2.png'
 import foodThree from '../../assets/images/food-3.png'
@@ -22,6 +22,7 @@ import secondBanner from '../../assets/images/secondBanner.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useAnim } from '../Context'
+import TextAnimation from '../AnimatedHeading'
 
 
 
@@ -94,7 +95,7 @@ const {ref} =useAnim()
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
 
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10" >
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1>
+                <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
                     <p className='font-curban text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
@@ -127,12 +128,15 @@ const {ref} =useAnim()
                     <div className=''>
                         <h2 className='text-[#5C6C68] text-2xl font-anti absolute -left-16 md:left-0  rotate-[-90deg]'>Hotel & Resorts <span data-aos='fade-down' data-aos-delay='600' className='border-b-3 w-24 h-[1px] bg-[#5C6C68] inline-block'></span></h2>
                     </div>
-                    <img src={sideBg} alt="line-border" className='object-contain w-[210px] h-[300px] absolute top-[10px] right-0 ' data-aos='zoom-in' data-aos-delay='600' />
+                    <div className="relative w-full top-12">
+
+                    <img src={sideBg} alt="line-border" className='object-cover w-[230px] h-[300px] rotate-anim absolute top-4  right-[-600px]' data-aos='zoom-in' data-aos-delay='600' />
+                    </div>
 
                     <div className=" ">
                         <h2 className='text-4xl md:text-[128px] text-[#5C6C68] font-anti opacity-50' >Delicious</h2>
 
-                        <h4 className='text-[#5C6C68] font-urban text-2xl md:text[40px]  absolute text-center bottom-0 left-1/2 -translate-x-1/2 '>
+                        <h4 className='text-[#5C6C68] font-urban text-2xl md:text-2xl xl:text-3xl  absolute text-center bottom-0 left-1/2 -translate-x-1/2 '>
                             COMPLETE YOUR DINNER WITH AN OVERNIGHT STAY IN LA SUITE
                         </h4>
                     </div>
@@ -142,12 +146,12 @@ const {ref} =useAnim()
 
                 <div className="grid grid-cols-1 md:grid-cols-2  px-[10px] md:px-[100px] text-[#5C6C68] mt-[100px] mb-12 font-urban">
                     <div className="md:px-[30px]">
-                        <p className='border-t-2 border-b-2 w-fit'>SPECIALIZE</p>
+                        <p className='border-t-2 border-b-2 w-fit xl:text-2xl'>SPECIALIZE</p>
                         <h2 className='text-2xl md:text-[64px] leading-tight'>
                             Always fresh <br />
                             ingredients
                         </h2>
-                        <p className='text-xl my-8' data-aos='zoom-out' data-aos-delay='600'>
+                        <p className='text-xl my-8 xl:text-2xl' data-aos='zoom-out' data-aos-delay='600'>
                             The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.
                         </p>
                     </div>
@@ -165,12 +169,12 @@ const {ref} =useAnim()
                             <img src={foodTwo} alt="food-dish" className='object-contain zom'  />
                         </div>
                         <div className="md:px-[40px]">
-                            <p className='border-t-2 border-b-2 w-fit'>SPECIALIZE</p>
+                            <p className='border-t-2 border-b-2 w-fit xl:text-2xl'>SPECIALIZE</p>
                             <h2 className='text-2xl md:text-[56px] leading-tight'>
                                 We invite you to <br />
                                 visit our restaurant
                             </h2>
-                            <p className=' text-xl my-8'>
+                            <p className=' text-xl xl:text-2xl my-8'>
                                 The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.
                             </p>
                         </div>
@@ -275,7 +279,7 @@ const {ref} =useAnim()
                                 Come and Explore <br />
                                 our Authentic Foods
                             </h2>
-                            <p className='text-xl my-8'>
+                            <p className='text-xl xl:text-2xl my-8'>
                                 The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.
                             </p>
                         </div>

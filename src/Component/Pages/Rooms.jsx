@@ -22,6 +22,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../Animation.css'
 import { useAnim } from '../Context'
+import TextAnimation from '../AnimatedHeading'
 
 
 
@@ -69,7 +70,8 @@ const Rooms = () => {
             <div className="h-screen absolute top-1/2 left-1/2 -z-10  transform -translate-x-1/2 -translate-y-1/2">
 
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
-                    <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Luxury Room</h1>
+                    
+                    <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Luxury Room" className='font-anti text-5xl  font-w-[400px]' /> </h1>
                     <p className='font-curban text-2xl anim' ref={ref}>
                         Explore the Gallery and get <br />
                         unforgettable experience
@@ -124,10 +126,10 @@ const Rooms = () => {
                     </div>
 
                     <div className="px-10 text-[#5C6C68] w-full space-y-7" data-aos='fade-down'>
-                        <h2 className='text-3xl md:text-[65px]'>Vintage Villas</h2>
-                        <p className='text-md md:text-xl'>The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.</p>
+                        <h2 className='text-3xl md:text-6xl'>Vintage Villas</h2>
+                        <p className='text-md md:text-xl xl:text-2xl'>The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.</p>
 
-                        <h5 className='text-xl md:text-3xl md:py-4'>Our Amenties</h5>
+                        <h5 className='text-xl md:text-3xl md:py-4 font-semibold xl:text-4xl'>Our Amenties</h5>
 
                         <div className="amenties space-y-10">
                             <div className="grid grid-cols-2 gap-2">

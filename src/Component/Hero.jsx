@@ -110,7 +110,7 @@ const Hero = () => {
                 <div className="h-screen items-center justify-center flex flex-col text-center text-white space-y-10">
                     {/* <h1 className='font-anti text-5xl md:text-[80px] font-w-[400px]'>Courtyard Castle</h1> */}
                     <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
-                    <p className='font-curban sm:md text-xl anim' ref={ref}>
+                    <p className='font-curban text-xl xl:text-2xl  anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
@@ -171,7 +171,7 @@ const Hero = () => {
                 {/* hover rooms */}
 
                 <div className="hidden md:block">
-                    <div className={isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#c2b0da] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' : isHovering3 ? "h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : 'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'}>
+                    <div className={isHovering ? "h-auto  md:h-[600px] relative bg-[#bdcfcb] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : isHovering2 ? 'h-auto  md:h-[600px] relative bg-[#DEE2E1] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]' : isHovering3 ? "h-auto  md:h-[600px] relative bg-[#d2f1ea] w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]" : 'bg-[#DEE2E1] h-auto  md:h-[600px] relative  w-full overflow-hidden  text-[#5C6C68] font-[anti] flex items-center justify-around text-[78px]'}>
 
                         <div className="relative h-[600px] w-[100%] text-center" onMouseMove={handleMouseMove}
                             onMouseOut={() => setIsHovering(false)}>
@@ -324,9 +324,9 @@ const Hero = () => {
 
 
                     <button class="inline-block items-center transition-all duration-200 relative overflow-hidden z-10 text-[#5C6C68] md:px-7 exp-button px-3 md:py-2 py-1 cursor-pointer text-lg  bg-transparent border border-[#5C6C68] hover:text-white shadow-lg  button3">
-                        <a href="https://cdn.illusiview.com/Arch4Foundation/index.htm" target='_blank'>
+                        <Link href="https://cdn.illusiview.com/Arch4Foundation/index.htm" target='_blank'>
                             <div className="flex items-center "><span className='pr-3 iconsd'><FaArrowRightLong /></span><span className=''>Explore Virual tour</span></div>
-                        </a>
+                        </Link>
                     </button>
                 </div>
 

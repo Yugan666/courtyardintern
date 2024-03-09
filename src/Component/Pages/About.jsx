@@ -31,7 +31,7 @@ const About = () => {
 
                 <div className="h-screen items-center justify-center flex flex-col  text-center text-white space-y-10">
                 <h1 className='font-anti text-5xl md:text-6xl xl:text-7xl font-w-[400px]'><TextAnimation typingSpeed={100} text="Courtyard Castle" className='font-anti text-5xl  font-w-[400px]' /> </h1>
-                    <p className='font-curban sm:md text-xl anim' ref={ref}>
+                    <p className='font-curban text-xl xl:text-2xl anim' ref={ref}>
                         Culinary art is an important part of the <br />
                         unforgettable experience
                     </p>
@@ -76,23 +76,23 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-[10px] md:px-[100px]">
                 <img src={aboutOne} alt="about_bg" className='object-contain ' data-aos='fade-down' data-aos-delay='600' />
 
-                <div className=" px-[30px] font-urban text-xl leading-10 ">
+                <div className=" px-[30px] font-urban text-xl xl:text-3xl leading-10 ">
                     <p ref={ref} className='anim'>
                         At Courtyard , we believe that the ultimate luxury lies in the time and connections we make. Hence, the facilities and experiences are carefully crafted to rejuvenate the senses and foster connections with nature, family, and friends. Relax, rejuvenate, and reconnect with the world around you .
                     </p>
                 </div>
             </div>
 
-            <div className="h-[168vh] bg-[#DEE2E1] w-full relative">
+            <div className=" h-auto bg-[#DEE2E1] w-full relative">
            <div className="mt-[200px]">
-           <div className="grid grid-cols-1 md:grid-cols-2   absolute text-[#5C6C68] -mt-[100px]  font-urban">
-                    <div className="px-[10px] md:px-[100px]">
-                        <p className='border-t-2 border-b-2 w-fit'>SPECIALIZE</p>
+           <div className="grid grid-cols-1 md:grid-cols-2 text-[#5C6C68]   font-urban">
+                    <div className="px-[10px] -mt-24 md:px-[100px]">
+                        <p className='border-t-2 border-b-2 xl:text-2xl w-fit'>SPECIALIZE</p>
                         <h2 className='text-4xl md:text-[64px] leading-tight' data-aos='fade-down' data-aos-delay='600'>
                             Peacefull Life <br />
                             style
                         </h2>
-                        <p className='text-xl my-8'>
+                        <p className='text-xl xl:text-3xl my-8'>
                             The people, food and the prime locations make Rodich the perfect place good friends & family to come together and have great time.
                         </p>
                     </div>
@@ -103,17 +103,17 @@ const About = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2  relative top-[85vh]">
+            <div className="grid grid-cols-1 md:grid-cols-2  relative">
                    <div className="relative">
                    <img src={aboutThree} alt="About_bg" className='object-contain '  />
                     <div className="content-above absolute flex items-start justify-center text-xl leading-relaxed h-full w-full  top-0  space-y-2  text-white flex-col px-[60px]" data-aos='zoom-in' data-aos-delay='600'>
-                        <h2 className='text-5xl font-anti'>Our Rooms</h2>
-                        <p className=' '>The people, food and the prime locations <br /> make Rodich the perfect place good fri</p>
+                        <h2 className='text-6xl font-anti'>Our Rooms</h2>
+                        <p className=' xl:text-2xl'>The people, food and the prime locations <br /> make Rodich the perfect place good fri</p>
                     </div>
                    </div>
                     <div className=" px-[30px] font-urban text-xl leading-relaxed  flex flex-col items-center justify-center ">
-                        <h2 className='text-4xl md:text-[68px] text-[#5C6C68] font-anti opacity-50 py-8'>Contact Us</h2>
-                        <p>
+                        <h2 className='text-4xl md:text-6xl text-[#5C6C68] font-anti opacity-50 py-8'>Contact Us</h2>
+                        <p className='xl:text-2xl'>
                             The people, food and the prime locations <br /> make Rodich the perfect place good fri
                         </p>
                     </div>
